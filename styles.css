@@ -503,8 +503,16 @@ blockquote { quotes: none; }
 }
 
 .detalle-item__icon {
-  font-size: 1.6rem;
-  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 0.5px solid rgba(184, 145, 42, 0.35);
+  background: linear-gradient(135deg, rgba(240, 217, 144, 0.15), rgba(184, 145, 42, 0.08));
+  color: var(--color-oro);
+  flex-shrink: 0;
 }
 
 .detalle-item__title {
