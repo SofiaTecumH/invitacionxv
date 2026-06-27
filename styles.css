@@ -8,9 +8,9 @@
 /* ── 1. CUSTOM PROPERTIES ── */
 :root {
   /* Paleta nueva: blanco + dorado + rojo rubí cálido */
-  --color-rojo:        #C0272D;   /* rubí cálido, no morado */
-  --color-rojo-deep:   #8B1A1E;
-  --color-rojo-soft:   #D94F52;
+  --color-rojo:        #A8223A;   /* cereza profunda, cálida */
+  --color-rojo-deep:   #7A1529;
+  --color-rojo-soft:   #C43355;
   --color-oro:         #B8912A;   /* dorado más cálido/terroso para fondo claro */
   --color-oro-claro:   #D4A84B;
   --color-oro-pale:    #F0D990;
@@ -63,7 +63,7 @@ body {
   /* Fondo: blanco cálido con textura radial muy sutil */
   background-color: var(--color-crema);
   background-image:
-    radial-gradient(ellipse 80% 50% at 50% 0%,   rgba(192, 39, 45, 0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 80% 50% at 50% 0%,   rgba(168, 34, 58, 0.06) 0%, transparent 60%),
     radial-gradient(ellipse 60% 40% at 50% 100%,  rgba(184, 145, 42, 0.08) 0%, transparent 60%);
   color: var(--color-texto);
   font-family: var(--font-sans);
@@ -108,10 +108,28 @@ blockquote { quotes: none; }
   background:
     linear-gradient(
       180deg,
-      rgba(192, 39, 45, 0.92) 0%,
-      rgba(139, 26, 30, 0.97) 40%,
-      rgba(100, 15, 18, 1)    100%
+      rgba(168, 34, 58, 0.92) 0%,
+      rgba(122, 21, 41, 0.97) 40%,
+      rgba(80, 12, 30, 1)    100%
     );
+}
+
+/* Degradado de salida: funde el rojo hacia el crema del body */
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 220px;
+  background: linear-gradient(
+    to bottom,
+    transparent                 0%,
+    rgba(80, 12, 30, 0.55)    30%,
+    rgba(168, 34, 58, 0.15)     60%,
+    rgba(253, 248, 240, 0.9)   88%,
+    var(--color-crema)         100%
+  );
+  pointer-events: none;
+  z-index: 2;
 }
 
 /* Textura de luz dorada desde arriba */
@@ -334,6 +352,15 @@ blockquote { quotes: none; }
 }
 
 .section__inner {
+
+/* La primera sección arranca con tinte rosado muy sutil para suavizar la transición */
+.section:first-of-type {
+  background: linear-gradient(
+    to bottom,
+    rgba(168, 34, 58, 0.05) 0%,
+    transparent             55%
+  );
+}
   max-width: var(--max-content);
   margin-inline: auto;
   text-align: center;
@@ -393,7 +420,7 @@ blockquote { quotes: none; }
   border-radius: var(--radius-sm);
   padding: var(--space-12) var(--space-10);
   box-shadow:
-    0 2px 20px rgba(192, 39, 45, 0.06),
+    0 2px 20px rgba(168, 34, 58, 0.06),
     0 1px  6px rgba(184, 145, 42, 0.08);
   overflow: hidden;
 }
@@ -462,7 +489,7 @@ blockquote { quotes: none; }
   border: 0.5px solid rgba(184, 145, 42, 0.25);
   background: var(--color-crema);
   border-radius: var(--radius-sm);
-  box-shadow: 0 1px 8px rgba(192, 39, 45, 0.04);
+  box-shadow: 0 1px 8px rgba(168, 34, 58, 0.04);
   transition:
     transform var(--transition-base),
     border-color var(--transition-base),
@@ -471,8 +498,8 @@ blockquote { quotes: none; }
 
 .detalle-item:hover {
   transform: translateY(-3px);
-  border-color: rgba(192, 39, 45, 0.3);
-  box-shadow: 0 4px 16px rgba(192, 39, 45, 0.1);
+  border-color: rgba(168, 34, 58, 0.3);
+  box-shadow: 0 4px 16px rgba(168, 34, 58, 0.1);
 }
 
 .detalle-item__icon {
@@ -539,7 +566,7 @@ blockquote { quotes: none; }
     var(--color-rojo-deep)
   );
   border-radius: var(--radius-sm);
-  box-shadow: 0 2px 12px rgba(192, 39, 45, 0.3);
+  box-shadow: 0 2px 12px rgba(168, 34, 58, 0.3);
   transition:
     filter var(--transition-base),
     transform var(--transition-base),
@@ -549,7 +576,7 @@ blockquote { quotes: none; }
 .btn-confirm:hover {
   filter: brightness(1.1);
   transform: translateY(-2px);
-  box-shadow: 0 4px 20px rgba(192, 39, 45, 0.4);
+  box-shadow: 0 4px 20px rgba(168, 34, 58, 0.4);
 }
 
 .btn-confirm:active { transform: scale(0.98); }
