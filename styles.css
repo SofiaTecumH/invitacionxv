@@ -1,0 +1,699 @@
+/* ============================================================
+   INVITACIÓN XV AÑOS — Valentina Rosales
+   styles.css
+   Arquitectura: Custom Properties → Reset → Base → Layout →
+                 Componentes → Utilidades → Media Queries
+   ============================================================ */
+
+/* ── 1. CUSTOM PROPERTIES ── */
+:root {
+  /* Paleta */
+  --color-oro:        #C9A84C;
+  --color-oro-claro:  #E8C97A;
+  --color-oro-pale:   #F5E7B8;
+  --color-vino:       #6B1A2A;
+  --color-vino-deep:  #4A0F1B;
+  --color-vino-soft:  #8C2A3C;
+  --color-crema:      #FBF5E6;
+  --color-crema-dark: #F0E4C4;
+  --color-texto:      #2C0D13;
+
+  /* Tipografía */
+  --font-display:  'Cinzel', serif;
+  --font-serif:    'Cormorant Garamond', serif;
+  --font-sans:     'Montserrat', sans-serif;
+
+  /* Espaciado base (escala 4pt) */
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-6:  1.5rem;
+  --space-8:  2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+
+  /* Bordes y radios */
+  --radius-sm:   2px;
+  --border-oro:  0.5px solid rgba(201, 168, 76, 0.25);
+  --border-oro-hover: 0.5px solid rgba(201, 168, 76, 0.5);
+
+  /* Transiciones */
+  --transition-base: 0.3s ease;
+  --transition-slow: 0.8s ease;
+
+  /* Anchos */
+  --max-content: 700px;
+}
+
+
+/* ── 2. RESET ── */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--color-vino-deep);
+  color: var(--color-crema);
+  font-family: var(--font-sans);
+  font-weight: 300;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font: inherit;
+  color: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+blockquote {
+  quotes: none;
+}
+
+
+/* ── 3. CANVAS DE PARTÍCULAS ── */
+#particles-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+
+/* ── 4. HERO ── */
+.hero {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-12) var(--space-6);
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero__glow {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 50% 40%, rgba(201, 168, 76, 0.12) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 60% at 20% 80%, rgba(107, 26, 42, 0.4) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 60% at 80% 20%, rgba(107, 26, 42, 0.4) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.hero__ornament {
+  color: var(--color-oro);
+  letter-spacing: 0.5em;
+  font-size: 1.1rem;
+  margin-bottom: var(--space-6);
+  opacity: 0.8;
+}
+
+/* ── Grupo de título ── */
+.hero__title-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: var(--space-3);
+}
+
+.hero__pre,
+.hero__anos {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  color: var(--color-oro-claro);
+  letter-spacing: 0.35em;
+}
+
+.hero__xv {
+  font-family: var(--font-display);
+  font-size: clamp(7rem, 22vw, 14rem);
+  font-weight: 600;
+  line-height: 0.85;
+  background: linear-gradient(
+    160deg,
+    var(--color-oro-pale) 0%,
+    var(--color-oro)      40%,
+    var(--color-oro-claro) 60%,
+    #A8792A              100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 4px 24px rgba(201, 168, 76, 0.3));
+  animation: shimmer 4s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0%, 100% { filter: drop-shadow(0 4px 24px rgba(201, 168, 76, 0.3)); }
+  50%       { filter: drop-shadow(0 4px 40px rgba(201, 168, 76, 0.6)); }
+}
+
+.hero__anos {
+  letter-spacing: 0.55em;
+  margin-bottom: var(--space-6);
+}
+
+/* ── Identidad ── */
+.hero__identity {
+  margin-bottom: var(--space-8);
+}
+
+.hero__name {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 5vw, 3rem);
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  color: var(--color-crema);
+  margin-bottom: var(--space-2);
+}
+
+.hero__sub {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  color: var(--color-oro-claro);
+  letter-spacing: 0.2em;
+}
+
+/* ── Scroll CTA ── */
+.hero__scroll-btn {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--color-oro);
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  margin-top: var(--space-4);
+  transition: opacity var(--transition-base);
+  animation: bounce 2s ease-in-out infinite;
+}
+
+.hero__scroll-btn:hover {
+  opacity: 0.7;
+}
+
+.hero__scroll-btn svg {
+  width: 24px;
+  height: 24px;
+  stroke: var(--color-oro);
+  stroke-width: 1.5;
+  fill: none;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(6px); }
+}
+
+
+/* ── 5. CUENTA REGRESIVA ── */
+.countdown {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-6);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-8);
+}
+
+.countdown__unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-1);
+  min-width: 64px;
+}
+
+.countdown__num {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 6vw, 3rem);
+  font-weight: 600;
+  color: var(--color-oro);
+  line-height: 1;
+  text-shadow: 0 0 30px rgba(201, 168, 76, 0.4);
+  transition: transform 0.15s ease;
+}
+
+.countdown__num.tick {
+  transform: scale(1.08);
+}
+
+.countdown__label {
+  font-family: var(--font-sans);
+  font-size: 0.55rem;
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  color: var(--color-oro-claro);
+  opacity: 0.6;
+  text-transform: uppercase;
+}
+
+.countdown__sep {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--color-oro);
+  opacity: 0.3;
+  padding-bottom: var(--space-4);
+  user-select: none;
+}
+
+/* Mensaje cuando el evento llega */
+.countdown--done {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: var(--color-oro);
+  letter-spacing: 0.3em;
+}
+
+
+/* ── 6. SECCIONES ── */
+.section {
+  position: relative;
+  z-index: 1;
+  padding: var(--space-20) var(--space-6);
+}
+
+.section__inner {
+  max-width: var(--max-content);
+  margin-inline: auto;
+  text-align: center;
+}
+
+/* Label de sección (decorativo) */
+.section__label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  font-weight: 400;
+  letter-spacing: 0.45em;
+  color: var(--color-oro);
+  text-transform: uppercase;
+}
+
+.section__label::before,
+.section__label::after {
+  content: '';
+  display: block;
+  flex: 1;
+  height: 0.5px;
+  background: linear-gradient(90deg, transparent, var(--color-oro), transparent);
+  opacity: 0.6;
+}
+
+/* Separador entre secciones */
+.section-sep {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  color: var(--color-oro);
+  opacity: 0.35;
+  font-size: 0.7rem;
+}
+
+.section-sep::before,
+.section-sep::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 0.5px;
+  background: var(--color-oro);
+}
+
+
+/* ── 7. CARD ── */
+.card {
+  position: relative;
+  background: rgba(201, 168, 76, 0.05);
+  border: var(--border-oro);
+  border-radius: var(--radius-sm);
+  padding: var(--space-12) var(--space-10);
+  overflow: hidden;
+}
+
+/* Gradiente interior sutil */
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(201, 168, 76, 0.05) 0%,
+    transparent 50%,
+    rgba(107, 26, 42, 0.08) 100%
+  );
+  pointer-events: none;
+}
+
+/* Marco interior decorativo */
+.card::after {
+  content: '';
+  position: absolute;
+  inset: 12px;
+  border: 0.5px solid rgba(201, 168, 76, 0.12);
+  border-radius: 1px;
+  pointer-events: none;
+}
+
+
+/* ── 8. DIVIDER ── */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  width: min(400px, 90%);
+  margin-inline: auto;
+  color: var(--color-oro);
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 0.5px;
+  background: linear-gradient(90deg, transparent, var(--color-oro), transparent);
+}
+
+.divider span {
+  font-size: 1rem;
+  opacity: 0.8;
+}
+
+.divider--inner {
+  margin-block: var(--space-8);
+}
+
+
+/* ── 9. MENSAJE ── */
+.mensaje__texto {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  line-height: 1.95;
+  color: var(--color-crema);
+  opacity: 0.92;
+}
+
+.mensaje__firma {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  letter-spacing: 0.3em;
+  color: var(--color-oro);
+}
+
+
+/* ── 10. DETALLES GRID ── */
+.detalles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+}
+
+.detalle-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-8) var(--space-4);
+  border: var(--border-oro);
+  background: rgba(74, 15, 27, 0.35);
+  border-radius: var(--radius-sm);
+  transition:
+    transform var(--transition-base),
+    border-color var(--transition-base),
+    background var(--transition-base);
+}
+
+.detalle-item:hover {
+  transform: translateY(-4px);
+  border-color: rgba(201, 168, 76, 0.5);
+  background: rgba(74, 15, 27, 0.55);
+}
+
+.detalle-item__icon {
+  font-size: 1.75rem;
+  line-height: 1;
+}
+
+.detalle-item__title {
+  font-family: var(--font-display);
+  font-size: 0.6rem;
+  letter-spacing: 0.4em;
+  color: var(--color-oro);
+  text-transform: uppercase;
+}
+
+.detalle-item__value {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-crema);
+  line-height: 1.4;
+  text-align: center;
+}
+
+.detalle-item__sub {
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  color: var(--color-oro-claro);
+  opacity: 0.65;
+  text-align: center;
+}
+
+
+/* ── 11. PROGRAMA ── */
+.programa-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.programa-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-6);
+  padding: var(--space-5) 0;
+  border-bottom: 0.5px solid rgba(201, 168, 76, 0.1);
+  text-align: left;
+}
+
+.programa-item:last-child {
+  border-bottom: none;
+}
+
+.programa-item__hora {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  color: var(--color-oro);
+  min-width: 72px;
+  padding-top: 3px;
+  flex-shrink: 0;
+}
+
+.programa-item__info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.programa-item__evento {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--color-crema);
+}
+
+.programa-item__desc {
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  color: var(--color-oro-claro);
+  opacity: 0.6;
+}
+
+
+/* ── 12. CONFIRMACIÓN ── */
+.confirm__text {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--color-crema);
+  opacity: 0.9;
+  margin-bottom: var(--space-8);
+}
+
+.confirm__deadline {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--color-oro);
+}
+
+.btn-confirm {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: 0.875rem 2.5rem;
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  color: var(--color-vino-deep);
+  background: linear-gradient(
+    135deg,
+    var(--color-oro-pale),
+    var(--color-oro),
+    var(--color-oro-claro)
+  );
+  border-radius: var(--radius-sm);
+  transition:
+    filter var(--transition-base),
+    transform var(--transition-base);
+}
+
+.btn-confirm:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+}
+
+.btn-confirm:active {
+  transform: scale(0.98);
+}
+
+.confirm__note {
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  color: var(--color-oro-claro);
+  opacity: 0.5;
+}
+
+
+/* ── 13. FOOTER ── */
+.footer {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: var(--space-12) var(--space-6) var(--space-16);
+  border-top: 0.5px solid rgba(201, 168, 76, 0.12);
+}
+
+.footer__ornament {
+  font-size: 0.9rem;
+  color: var(--color-oro);
+  opacity: 0.45;
+  letter-spacing: 0.3em;
+  margin-bottom: var(--space-4);
+}
+
+.footer__credit {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--color-oro-claro);
+  opacity: 0.45;
+  letter-spacing: 0.15em;
+}
+
+
+/* ── 14. UTILIDADES ── */
+
+/* Reveal on scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity var(--transition-slow),
+    transform var(--transition-slow);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+
+/* ── 15. MEDIA QUERIES ── */
+@media (max-width: 600px) {
+  .card {
+    padding: var(--space-8) var(--space-6);
+  }
+
+  .countdown {
+    gap: var(--space-4);
+  }
+
+  .countdown__sep {
+    display: none;
+  }
+
+  .detalles-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 380px) {
+  .detalles-grid {
+    grid-template-columns: 1fr;
+  }
+}

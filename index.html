@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Invitación virtual a los XV Años de Ximena Tecum — 04 de julio 2026" />
+  <meta property="og:title" content="Mis XV Años — Ximena Tecum" />
+  <meta property="og:description" content="Te invito a ser parte de un momento especial" />
+  <meta property="og:type" content="website" />
+  <title>Mis XV Años - Ximena Tecum</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Cinzel:wght@400;600&family=Montserrat:wght@300;400;500&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <canvas id="particles-canvas" aria-hidden="true"></canvas>
+
+  <header class="hero" role="banner">
+    <div class="hero__glow" aria-hidden="true"></div>
+
+    <p class="hero__ornament" aria-hidden="true">✦ &nbsp; ✦ &nbsp; ✦</p>
+
+    <div class="hero__title-group">
+      <p class="hero__pre">Mis</p>
+      <h1 class="hero__xv">XV</h1>
+      <p class="hero__anos">A ñ o s</p>
+    </div>
+
+    <div class="divider" aria-hidden="true"><span>❧</span></div>
+
+    <div class="hero__identity">
+      <h2 class="hero__name">Ximena Tecum</h2>
+      <p class="hero__sub">te invita a celebrar con ella</p>
+    </div>
+
+    <div class="countdown" id="countdown" role="timer" aria-label="Cuenta regresiva al evento">
+      <div class="countdown__unit">
+        <span class="countdown__num" id="cd-d">--</span>
+        <span class="countdown__label">Días</span>
+      </div>
+      <span class="countdown__sep" aria-hidden="true">:</span>
+      <div class="countdown__unit">
+        <span class="countdown__num" id="cd-h">--</span>
+        <span class="countdown__label">Horas</span>
+      </div>
+      <span class="countdown__sep" aria-hidden="true">:</span>
+      <div class="countdown__unit">
+        <span class="countdown__num" id="cd-m">--</span>
+        <span class="countdown__label">Minutos</span>
+      </div>
+      <span class="countdown__sep" aria-hidden="true">:</span>
+      <div class="countdown__unit">
+        <span class="countdown__num" id="cd-s">--</span>
+        <span class="countdown__label">Segundos</span>
+      </div>
+    </div>
+
+    <button class="hero__scroll-btn" id="scroll-down" aria-label="Ver detalles del evento">
+      <span>Ver detalles</span>
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <polyline points="6 9 12 15 18 9" />
+      </svg>
+    </button>
+  </header>
+
+  <section class="section" id="mensaje" aria-labelledby="mensaje-heading">
+    <div class="section__inner reveal">
+      <p class="section__label" id="mensaje-heading" aria-label="El gran día">
+        <span>El gran día</span>
+      </p>
+      <div class="card">
+        <blockquote class="mensaje__texto">
+          Con el corazón lleno de alegría y gratitud,
+          tengo el honor de invitarte a compartir
+          el momento más especial de mi vida.<br /><br />
+          Un día donde los sueños se convierten
+          en recuerdos eternos, y cada instante
+          brilla como el oro de este nuevo capítulo.
+        </blockquote>
+        <div class="divider divider--inner" aria-hidden="true"><span>✦</span></div>
+        <p class="mensaje__firma">— Ximena</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-sep" aria-hidden="true"><span>✦</span></div>
+
+  <section class="section" id="detalles" aria-labelledby="detalles-heading">
+    <div class="section__inner reveal">
+      <p class="section__label" id="detalles-heading">
+        <span>Detalles del evento</span>
+      </p>
+      <ul class="detalles-grid" role="list">
+        <li class="detalle-item">
+          <span class="detalle-item__icon" aria-hidden="true">📅</span>
+          <span class="detalle-item__title">Fecha</span>
+          <span class="detalle-item__value">Sábado<br />04 de julio</span>
+          <span class="detalle-item__sub">2026</span>
+        </li>
+        <li class="detalle-item">
+          <span class="detalle-item__icon" aria-hidden="true">⛪</span>
+          <span class="detalle-item__title">Misa</span>
+          <span class="detalle-item__value">10:00 AM</span>
+          <span class="detalle-item__sub">Puntual, por favor</span>
+        </li>
+        <li class="detalle-item">
+          <span class="detalle-item__icon" aria-hidden="true">🏛️</span>
+          <span class="detalle-item__title">Recepción</span>
+          <span class="detalle-item__value">1:00 PM</span>
+          <span class="detalle-item__value">Restaurante donde Mario's<br />San José Pinula</span>
+          <span class="detalle-item__sub">Ruta a Ciénega Grande</span>
+        </li>
+
+      </ul>
+    </div>
+  </section>
+
+  <div class="section-sep" aria-hidden="true"><span>✦</span></div>
+
+  <section class="section" id="confirmar" aria-labelledby="confirmar-heading">
+    <div class="section__inner reveal">
+      <p class="section__label" id="confirmar-heading">
+        <span>Confirmación</span>
+      </p>
+      <div class="card">
+        <p class="confirm__text">
+          Por favor confirma tu asistencia antes del<br />
+          <strong class="confirm__deadline">2 de julio de 2026</strong>
+        </p>
+        <a
+          class="btn-confirm"
+          href="https://wa.me/50241917457?text=¡Hola!%20Confirmo%20mi%20asistencia%20a%20los%20XV%20de%20Ximena"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Confirmar asistencia por WhatsApp"
+        >
+          <span>✉</span>
+          <span>Confirmar asistencia</span>
+        </a>
+        <div class="divider divider--inner" aria-hidden="true"><span>❧</span></div>
+      </div>
+    </div>
+  </section>
+
+
+  <footer class="footer" role="contentinfo">
+    <p class="footer__ornament" aria-hidden="true">✦ &nbsp; ✦ &nbsp; ✦</p>
+    <p class="footer__credit">Con amor y alegría — Familia Tecum Hernández</p>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
